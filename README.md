@@ -1,5 +1,5 @@
 # NFSe-Maringa
-Este projeto tem por objetivo criar um WebService Cliente que consumo o padrão ABRASF de Nota Fiscal de Serviço Eletrônica. O case, por hora, a prefeitura do município de Maringá.
+Este projeto tem por objetivo criar um WebService Cliente que consuma o padrão ABRASF de Nota Fiscal de Serviço Eletrônica. O case, por hora, é a prefeitura do município de Maringá.
 
 #Referência
 Ambiente de Testes da Prefeitura de Maringá: https://isseteste.maringa.pr.gov.br/auth/login
