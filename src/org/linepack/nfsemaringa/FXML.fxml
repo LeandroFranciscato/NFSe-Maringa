@@ -1,0 +1,1078 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConsultarNfseFaixaResposta xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd ">
+    <ListaNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>35</Numero>
+                    <CodigoVerificacao>L9QNTV0BZ</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T09:57:32</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>23.71</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>22.42</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>11</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>23.71</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>.16</ValorPis>
+                                    <ValorCofins>.75</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>.38</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 25.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>60744463000190</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>SYNGENTA PROTECAO DE CULTIVOS LTDA</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>NACOES UNIDAS - AC QUEZIA NEVES</Endereco>
+                                    <Numero>18001</Numero>
+                                    <Complemento>SUB - REC. FIS.</Complemento>
+                                    <Bairro>SANTO AMARO</Bairro>
+                                    <CodigoMunicipio>4115200</CodigoMunicipio>
+                                    <Uf>PR</Uf>
+                                    <Cep>87014010</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>4391126191</Telefone>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>35</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-25T16:18:45</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>40</Numero>
+                    <CodigoVerificacao>OWU80G733</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T17:31:44</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>284.55</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>269.1</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>16</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>284.55</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>1.95</ValorPis>
+                                    <ValorCofins>9</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>4.5</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 300.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                    <Email>dbs@unicampo.coop.br</Email>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>37</Numero>
+                    <CodigoVerificacao>UA45DJ81G</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T10:50:37</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>189.7</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>179.4</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>13</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>189.7</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>1.3</ValorPis>
+                                    <ValorCofins>6</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>3</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 200.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>37</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-25T16:16:24</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>38</Numero>
+                    <CodigoVerificacao>7L740531J</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T10:51:24</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>94.85</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>89.7</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>14</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>94.85</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>.65</ValorPis>
+                                    <ValorCofins>3</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>1.5</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 100.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>60744463000190</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>SYNGENTA PROTECAO DE CULTIVOS LTDA</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>NACOES UNIDAS - AC QUEZIA NEVES</Endereco>
+                                    <Numero>18001</Numero>
+                                    <Complemento>SUB - REC. FIS.</Complemento>
+                                    <Bairro>SANTO AMARO</Bairro>
+                                    <CodigoMunicipio>4115200</CodigoMunicipio>
+                                    <Uf>PR</Uf>
+                                    <Cep>87014010</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>4391126191</Telefone>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>38</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-25T16:09:39</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>36</Numero>
+                    <CodigoVerificacao>655P281TY</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T10:43:47</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>94.85</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>89.7</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>12</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>94.85</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>.65</ValorPis>
+                                    <ValorCofins>3</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>1.5</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 100.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>36</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-25T11:04:27</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>39</Numero>
+                    <CodigoVerificacao>5ROGPF89O</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T14:33:08</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>189.7</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>179.4</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>15</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>189.7</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>1.3</ValorPis>
+                                    <ValorCofins>6</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>3</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 200.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                    <Email>dbs@unicampo.coop.br</Email>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>39</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-25T16:08:27</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>42</Numero>
+                    <CodigoVerificacao>DKH85IMS1</CodigoVerificacao>
+                    <DataEmissao>2014-11-26T08:06:02</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>94.85</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>89.7</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>18</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-26</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>94.85</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>.65</ValorPis>
+                                    <ValorCofins>3</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>1.5</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 100.00
+
+                                    Vencimento: 27/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                    <Email>dbs@unicampo.coop.br</Email>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+            <NfseCancelamento versao="2.01">
+                <Confirmacao>
+                    <Pedido>
+                        <InfPedidoCancelamento>
+                            <IdentificacaoNfse>
+                                <Numero>42</Numero>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                                <CodigoMunicipio>4115200</CodigoMunicipio>
+                            </IdentificacaoNfse>
+                            <CodigoCancelamento>1</CodigoCancelamento>
+                        </InfPedidoCancelamento>
+                    </Pedido>
+                    <DataHora>2014-11-26T08:07:40</DataHora>
+                </Confirmacao>
+            </NfseCancelamento>
+        </CompNfse>
+        <CompNfse>
+            <Nfse versao="2.01">
+                <InfNfse>
+                    <Numero>41</Numero>
+                    <CodigoVerificacao>57L3ZVR47</CodigoVerificacao>
+                    <DataEmissao>2014-11-25T17:42:00</DataEmissao>
+                    <ValoresNfse>
+                        <BaseCalculo>474.25</BaseCalculo>
+                        <Aliquota>0</Aliquota>
+                        <ValorIss>0</ValorIss>
+                        <ValorLiquidoNfse>448.5</ValorLiquidoNfse>
+                    </ValoresNfse>
+                    <PrestadorServico>
+                        <IdentificacaoPrestador>
+                            <CpfCnpj>
+                                <Cnpj>72042799000190</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal>54170</InscricaoMunicipal>
+                        </IdentificacaoPrestador>
+                        <RazaoSocial>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</RazaoSocial>
+                        <NomeFantasia>COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRONOMIA LTDA</NomeFantasia>
+                        <Endereco>
+                            <Endereco>AVENIDA CARNEIRO LEAO</Endereco>
+                            <Numero>65</Numero>
+                            <Complemento>DT 2 3 20 21 SALAS 1409 A 1412</Complemento>
+                            <Bairro>ZONA 01</Bairro>
+                            <CodigoMunicipio>4115200</CodigoMunicipio>
+                            <Uf>PR</Uf>
+                            <Cep>87014010</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>4440093803</Telefone>
+                            <Email>unicampo@unicampo.coop.br</Email>
+                        </Contato>
+                    </PrestadorServico>
+                    <OrgaoGerador>
+                        <CodigoMunicipio>4115200</CodigoMunicipio>
+                        <Uf>PR</Uf>
+                    </OrgaoGerador>
+                    <DeclaracaoPrestacaoServico>
+                        <InfDeclaracaoPrestacaoServico>
+                            <Rps>
+                                <IdentificacaoRps>
+                                    <Numero>17</Numero>
+                                    <Serie>2</Serie>
+                                    <Tipo>1</Tipo>
+                                </IdentificacaoRps>
+                                <DataEmissao>2014-11-25</DataEmissao>
+                                <Status>1</Status>
+                            </Rps>
+                            <Competencia>2014-11-01</Competencia>
+                            <Servico>
+                                <Valores>
+                                    <ValorServicos>474.25</ValorServicos>
+                                    <ValorDeducoes>0</ValorDeducoes>
+                                    <ValorPis>3.25</ValorPis>
+                                    <ValorCofins>15</ValorCofins>
+                                    <ValorInss>0</ValorInss>
+                                    <ValorIr>7.5</ValorIr>
+                                    <ValorCsll>0</ValorCsll>
+                                    <OutrasRetencoes>0</OutrasRetencoes>
+                                    <ValorIss>0</ValorIss>
+                                    <Aliquota>0</Aliquota>
+                                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                                    <DescontoCondicionado>0</DescontoCondicionado>
+                                </Valores>
+                                <IssRetido>2</IssRetido>
+                                <ItemListaServico>0701</ItemListaServico>
+                                <CodigoCnae>7490103</CodigoCnae>
+                                <CodigoTributacaoMunicipio>4115200</CodigoTributacaoMunicipio>
+                                <Discriminacao>CONSULTORIA TECNICA AGRONOMICA - R$ 500.00
+
+                                    Vencimento: 26/11/2014
+
+                                    Para pagamento via deposito bancario, seguem dados:
+                                    Banco do Brasil / Agencia 3409-6 / Conta Corrente 75505-2 / Codigo identificador: (CPF/CNPJ do Tomador de Servico)
+
+                                    IRRF - Aliq.: 1.50 Codigo Recolhimento SRF 3280 Pgto P.J. a Coop.de Trabalho
+                                    PIS - Aliq.: 0.65 Codigo Recolhimento SRF referente ao PIS: 5979
+                                    COFINS - Aliq.: 3.00 Codigo Recolhimento SRF referente ao COFINS: 5960
+
+                                </Discriminacao>
+                                <CodigoMunicipio>3550308</CodigoMunicipio>
+                                <CodigoPais>1058</CodigoPais>
+                                <ExigibilidadeISS>2</ExigibilidadeISS>
+                                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                            </Servico>
+                            <Prestador>
+                                <CpfCnpj>
+                                    <Cnpj>72042799000190</Cnpj>
+                                </CpfCnpj>
+                                <InscricaoMunicipal>54170</InscricaoMunicipal>
+                            </Prestador>
+                            <Tomador>
+                                <IdentificacaoTomador>
+                                    <CpfCnpj>
+                                        <Cnpj>48539407000118</Cnpj>
+                                    </CpfCnpj>
+                                </IdentificacaoTomador>
+                                <RazaoSocial>BASF S.A.</RazaoSocial>
+                                <Endereco>
+                                    <Endereco>DAS NACOES UNIDAS</Endereco>
+                                    <Numero>14171</Numero>
+                                    <Complemento>ROCHAVERA CORPORATE TOWERS TORRE CRYSTAL 12O ANDAR</Complemento>
+                                    <Bairro>MORUMBI</Bairro>
+                                    <CodigoMunicipio>3550308</CodigoMunicipio>
+                                    <Uf>SP</Uf>
+                                    <Cep>47940000</Cep>
+                                </Endereco>
+                                <Contato>
+                                    <Telefone>1938961711</Telefone>
+                                    <Email>dbs@unicampo.coop.br</Email>
+                                </Contato>
+                            </Tomador>
+                            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                            <IncentivoFiscal>2</IncentivoFiscal>
+                        </InfDeclaracaoPrestacaoServico>
+                    </DeclaracaoPrestacaoServico>
+                </InfNfse>
+            </Nfse>
+        </CompNfse>
+        <ProximaPagina>2</ProximaPagina>
+    </ListaNfse>
+</ConsultarNfseFaixaResposta>
