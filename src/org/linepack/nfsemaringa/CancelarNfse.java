@@ -47,7 +47,7 @@ public class CancelarNfse {
         tipc.setIdentificacaoNfse(tin);
         
         TcPedidoCancelamento tpc = new TcPedidoCancelamento();
-        tpc.setSignature(AssinadorXml.getAssinatura());        
+        //tpc.setSignature(AssinadorXml.getAssinatura());        
         tpc.setInfPedidoCancelamento(tipc);            
 
         CancelarNfseEnvio cancelarNfseEnvio = new CancelarNfseEnvio();

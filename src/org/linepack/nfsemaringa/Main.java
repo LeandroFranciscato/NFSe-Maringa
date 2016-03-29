@@ -5,28 +5,24 @@
  */
 package org.linepack.nfsemaringa;
 
-import br.org.abrasf.nfse.CancelarNfseEnvio;
 import https.isseteste_maringa_pr_gov_br.ws.NfseServicesPort;
 import https.isseteste_maringa_pr_gov_br.ws.NfseServicesService;
-import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.Writer;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
-import javax.xml.bind.JAXBContext;
 import org.linepack.nfsemaringa.util.Conexao;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import org.linepack.nfsemaringa.util.AssinadorXml;
 import org.xml.sax.SAXException;
 
 /**
@@ -38,7 +34,7 @@ public class Main {
     public static void main(String[] args) throws JAXBException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException {
                         
         Conexao.certifica();
-                
+                        
         /*
         // ATRIBUI OS DADOS
         ConsultarNfseFaixaEnvio cnfe = new ConsultarNfseFaixaEnvio();
@@ -57,7 +53,9 @@ public class Main {
         cnfe.setPagina(1);
         cnfe.setPrestador(prestador);
 */        
-        
+
+
+/*        
         CancelarNfseEnvio cne = new CancelarNfse().criaCancelamento();
 
         // OBJETO TO XML
@@ -65,17 +63,17 @@ public class Main {
         Marshaller m = context.createMarshaller();        
         Writer writer = new CharArrayWriter();
         m.marshal(cne, writer);
-        
+*/        
+        String xmlEnvio = AssinadorXml.getAssinatura("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><CancelarNfseEnvio xmlns=\"http://www.abrasf.org.br/nfse.xsd\"><Pedido><InfPedidoCancelamento Id=\"L1\"><IdentificacaoNfse><Numero>41</Numero><CpfCnpj><Cnpj>72042799000190</Cnpj></CpfCnpj><InscricaoMunicipal>054170</InscricaoMunicipal><CodigoMunicipio>41</CodigoMunicipio></IdentificacaoNfse><CodigoCancelamento>1</CodigoCancelamento></InfPedidoCancelamento></Pedido></CancelarNfseEnvio>","InfPedidoCancelamento");
         OutputStream os = new FileOutputStream(new File("xmlEnvio.xml"));
-        os.write(writer.toString().getBytes());                                
-                                                               
+        os.write(xmlEnvio.getBytes());                                
+        
         // ENVIA AO WEB SERVICE
         NfseServicesPort port = new NfseServicesService().getNfseServicesPort();        
-        String xml = port.cancelarNfse(writer.toString());
-        
-        
+        String xmlRetorno = port.cancelarNfse(xmlEnvio);
+                
         OutputStream osRetorno = new FileOutputStream(new File("xmlRetorno.xml"));
-        osRetorno.write(xml.getBytes());
+        osRetorno.write(xmlRetorno.getBytes());
         
 /*        
         //XML TO OBJETO
