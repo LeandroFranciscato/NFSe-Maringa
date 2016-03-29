@@ -57,12 +57,11 @@ import org.xml.sax.SAXException;
  */
 public class AssinadorXml {
 
-    public static String getAssinatura(String xml, String tag) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
+    public static String getXmlAssinado(String xml, String tag, String keyStorePath, String password) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
         // Create a DOM XMLSignatureFactory that will be used to
         // generate the enveloped signature.
         XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
-
-        //String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><CancelarNfseEnvio xmlns=\"http://www.abrasf.org.br/nfse.xsd\"><Pedido><InfPedidoCancelamento Id=\"L1\"><IdentificacaoNfse><Numero>41</Numero><CpfCnpj><Cnpj>72042799000190</Cnpj></CpfCnpj><InscricaoMunicipal>054170</InscricaoMunicipal><CodigoMunicipio>41</CodigoMunicipio></IdentificacaoNfse><CodigoCancelamento>1</CodigoCancelamento></InfPedidoCancelamento></Pedido></CancelarNfseEnvio>";
+        
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(false);
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -88,8 +87,9 @@ public class AssinadorXml {
 
         // Load the KeyStore and get the signing key and certificate.
         KeyStore ks = KeyStore.getInstance("JKS");
-        ks.load(new FileInputStream("CERTIFICADO.jks"), "".toCharArray());
+        ks.load(new FileInputStream(keyStorePath), password.toCharArray());
 
+        //Get KeyStore alias name.
         Enumeration<String> aliasesEnum = ks.aliases();
         String alias = "";
         while (aliasesEnum.hasMoreElements()) {
@@ -98,9 +98,9 @@ public class AssinadorXml {
                 break;
             }
         }
-
+        
         KeyStore.PrivateKeyEntry keyEntry
-                = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection("".toCharArray()));
+                = (KeyStore.PrivateKeyEntry) ks.getEntry(alias, new KeyStore.PasswordProtection(password.toCharArray()));
         X509Certificate cert = (X509Certificate) keyEntry.getCertificate();
 
         // Create the KeyInfo containing the X509Data.
@@ -136,16 +136,7 @@ public class AssinadorXml {
         Transformer trans = tf.newTransformer();
         trans.transform(new DOMSource(doc), new StreamResult(writer));
 
-        return writer.toString().replace("\n", "").replace("\r", "").replace("\t", "");
-        /*      
-        //JAXB em ação
-        JAXBContext context = JAXBContext.newInstance(TcPedidoCancelamento.class);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        Reader readerAssinado = new CharArrayReader(writer.toString().toCharArray());
-        TcPedidoCancelamento cne = (TcPedidoCancelamento) unmarshaller.unmarshal(readerAssinado);                
-        
-        return cne.getSignature();
-         */
+        return writer.toString();        
     }
 
 }

@@ -2,6 +2,11 @@
 <CancelarNfseResposta xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd ">
     <ListaMensagemRetorno>
         <MensagemRetorno>
+            <Codigo>E79</Codigo>
+            <Mensagem>NFS-e já está cancelada.</Mensagem>
+            <Correcao>Verifique e informe corretamente os dados da NFS-e que deseja cancelar.</Correcao>
+        </MensagemRetorno>
+        <MensagemRetorno>
             <Codigo>L8</Codigo>
             <Mensagem>Data limite do cancelamento da NFS-e expirou</Mensagem>
             <Correcao>Cancelamento posterior a data limite somente por meio de processo administrativo</Correcao>

@@ -31,10 +31,13 @@ import org.xml.sax.SAXException;
  */
 public class CancelarNfse {
     
+    protected static final String tagID = "InfPedidoCancelamento";
+    
     public CancelarNfseEnvio criaCancelamento() throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException{                
         
         TcInfPedidoCancelamento tipc = new TcInfPedidoCancelamento();
         tipc.setCodigoCancelamento(new Integer(1).byteValue());
+        tipc.setId("1");           
         
         TcIdentificacaoNfse tin = new TcIdentificacaoNfse();
         tin.setCodigoMunicipio(41);
@@ -42,12 +45,11 @@ public class CancelarNfse {
         TcCpfCnpj cnpj = new TcCpfCnpj();
         cnpj.setCnpj("72042799000190");
         tin.setCpfCnpj(cnpj);
-        tin.setNumero(BigInteger.valueOf(41));
+        tin.setNumero(BigInteger.valueOf(42));
               
-        tipc.setIdentificacaoNfse(tin);
+        tipc.setIdentificacaoNfse(tin);        
         
-        TcPedidoCancelamento tpc = new TcPedidoCancelamento();
-        //tpc.setSignature(AssinadorXml.getAssinatura());        
+        TcPedidoCancelamento tpc = new TcPedidoCancelamento();        
         tpc.setInfPedidoCancelamento(tipc);            
 
         CancelarNfseEnvio cancelarNfseEnvio = new CancelarNfseEnvio();
