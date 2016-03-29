@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CancelarNfseResposta xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd ">
+    <ListaMensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>E1</Codigo>
+            <Mensagem>Assinatura do Hash não confere.
+                O conteúdo do XML não confere com o DigestValue!</Mensagem>
+            <Correcao>Reenvie assinatura do Hash conforme algoritmo estabelecido no Manual de Integração da NFS-e.</Correcao>
+        </MensagemRetorno>
+    </ListaMensagemRetorno>
+</CancelarNfseResposta>

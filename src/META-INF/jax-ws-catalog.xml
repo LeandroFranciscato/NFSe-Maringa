@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/home/leandro/Downloads/ws.wsdl" uri="wsdl/ws.wsdl"/>
+    <system systemId="file:/root/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl" uri="wsdl/ws.wsdl"/>
 </catalog>

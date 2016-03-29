@@ -5,13 +5,13 @@
  */
 package org.linepack.nfsemaringa.util;
 
-import br.org.abrasf.nfse.CancelarNfseEnvio;
+import br.org.abrasf.nfse.TcPedidoCancelamento;
+import java.io.CharArrayReader;
+import java.io.CharArrayWriter;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.Reader;
+import java.io.Writer;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -48,7 +48,9 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.w3._2000._09.xmldsig_.SignatureType;
 import org.w3c.dom.Document;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 /**
@@ -57,7 +59,7 @@ import org.xml.sax.SAXException;
  */
 public class AssinadorXml {
 
-    public static void assina() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
+    public static SignatureType getAssinatura() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
         // Create a DOM XMLSignatureFactory that will be used to
         // generate the enveloped signature.
         XMLSignatureFactory fac = XMLSignatureFactory.getInstance("DOM");
@@ -78,7 +80,7 @@ public class AssinadorXml {
 
         // Load the KeyStore and get the signing key and certificate.
         KeyStore ks = KeyStore.getInstance("JKS");
-        ks.load(new FileInputStream("CERTIFICADO_FULL.jks"), "".toCharArray());
+        ks.load(new FileInputStream("CERTIFICADO.jks"), "".toCharArray());
         KeyStore.PrivateKeyEntry keyEntry
                 = (KeyStore.PrivateKeyEntry) ks.getEntry("cooperativa de trabalho dos profissionais de agro:72042799000190", new KeyStore.PasswordProtection("".toCharArray()));
         X509Certificate cert = (X509Certificate) keyEntry.getCertificate();
@@ -94,7 +96,10 @@ public class AssinadorXml {
         // Instantiate the document to be signed.
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
-        Document doc = dbf.newDocumentBuilder().parse(new FileInputStream("xml.xml"));
+
+        Reader reader = new CharArrayReader("<Pedido xmlns=\"http://www.abrasf.org.br/nfse.xsd\"></Pedido>".toCharArray());
+        InputSource is = new InputSource(reader);
+        Document doc = dbf.newDocumentBuilder().parse(is);
 
         // Create a DOMSignContext and specify the RSA PrivateKey and
         // location of the resulting XMLSignature's parent element.
@@ -105,22 +110,22 @@ public class AssinadorXml {
 
         // Marshal, generate, and sign the enveloped signature.        
         signature.sign(dsc);
-                
+
         // Output the resulting document.
-        OutputStream os = new FileOutputStream("signature.xml");
+        //OutputStream os = new FileOutputStream("signature.xml");
+        Writer writer = new CharArrayWriter();
         TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer trans = tf.newTransformer();        
-        trans.transform(new DOMSource(doc), new StreamResult(os));
+        Transformer trans = tf.newTransformer();
+        trans.transform(new DOMSource(doc), new StreamResult(writer));
         
         //JAXB em ação
-        JAXBContext context = JAXBContext.newInstance(CancelarNfseEnvio.class);
-        Unmarshaller unmarshaller =  context.createUnmarshaller();                
-        Reader reader =  new InputStreamReader(new FileInputStream("signature.xml"));        
-        CancelarNfseEnvio cne =  (CancelarNfseEnvio) unmarshaller.unmarshal(reader);
-                
+        JAXBContext context = JAXBContext.newInstance(TcPedidoCancelamento.class);
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        Reader readerAssinado = new CharArrayReader(writer.toString().toCharArray());
+        TcPedidoCancelamento cne = (TcPedidoCancelamento) unmarshaller.unmarshal(readerAssinado);                
         
-        
-                
+        return cne.getSignature();
+
     }
 
 }
