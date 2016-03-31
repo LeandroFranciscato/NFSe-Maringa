@@ -18,6 +18,7 @@ public class EntityManagerUtil {
     public EntityManager getEntityManager(){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("NFSE");
         EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
         
         return em;
     }

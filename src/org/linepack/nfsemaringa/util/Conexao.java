@@ -16,13 +16,13 @@ public class Conexao {
         System.clearProperty("javax.net.ssl.keyStorePassword");
         System.clearProperty("javax.net.ssl.trustStore");
 
-        System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");
-        System.setProperty("javax.net.ssl.keyStore", "CERTIFICADO_FULL.pfx");
+        System.setProperty("javax.net.ssl.keyStoreType", "JKS");
+        System.setProperty("javax.net.ssl.keyStore", "CERTIFICADO.jks");
         System.setProperty("javax.net.ssl.keyStorePassword", "");
 
         System.setProperty("javax.net.ssl.trustStoreType", "JKS");
         System.setProperty("javax.net.ssl.trustStore", "jssecacerts");
-        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
+        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");        
     }
 
 }

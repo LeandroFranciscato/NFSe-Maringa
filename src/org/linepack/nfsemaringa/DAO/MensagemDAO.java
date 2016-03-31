@@ -9,10 +9,10 @@ package org.linepack.nfsemaringa.DAO;
  *
  * @author root
  */
-public class CancelamentoDAO extends DAOModelo{
+public class MensagemDAO extends DAOModelo {
 
-    public CancelamentoDAO(){
-        super();        
+    public MensagemDAO() {        
+        super(); 
     }
 
 }

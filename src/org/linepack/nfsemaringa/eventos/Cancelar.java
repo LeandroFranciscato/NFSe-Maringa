@@ -10,10 +10,7 @@ import br.org.abrasf.nfse.CancelarNfseResposta;
 import br.org.abrasf.nfse.TcCpfCnpj;
 import br.org.abrasf.nfse.TcIdentificacaoNfse;
 import br.org.abrasf.nfse.TcInfPedidoCancelamento;
-import br.org.abrasf.nfse.TcMensagemRetorno;
 import br.org.abrasf.nfse.TcPedidoCancelamento;
-import https.isseteste_maringa_pr_gov_br.ws.NfseServicesPort;
-import https.isseteste_maringa_pr_gov_br.ws.NfseServicesService;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStoreException;
@@ -41,9 +38,13 @@ public class Cancelar extends EventoModelo {
 
     public Cancelar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
         CancelamentoDAO cancelamentoDAO = new CancelamentoDAO();
-        for (Cancelamento cancelamento : cancelamentoDAO.getCancelamentosPendentes()) {
-            this.tagID = "InfPedidoCancelamento";    
-            this.objetoModelo = cancelamento;            
+        for (Object cancelamento : cancelamentoDAO.getList(""
+                + "select c "
+                + "  from Cancelamento c "
+                + " where c.isCancelada = 0 ")) {
+
+            this.tagID = "InfPedidoCancelamento";
+            this.objetoModelo = cancelamento;
             super.run();
         }
     }
@@ -85,16 +86,15 @@ public class Cancelar extends EventoModelo {
 
     @Override
     public String envioXml(String xmlEnvio) {
-        return this.getConnectionPort().cancelarNfse(xmlEnvio);
+        return super.getConnectionPort().cancelarNfse(xmlEnvio);
     }
 
     @Override
-    public void retornoXml(String xmlRetorno) {
+    public void retornoXml(String xmlRetorno, Object objetoModelo) {
         try {
             CancelarNfseResposta cneResposta = (CancelarNfseResposta) UnmarshallerUtil.unmarshal(CancelarNfseResposta.class, xmlRetorno);
-            for (TcMensagemRetorno msgRetorno : cneResposta.getListaMensagemRetorno().getMensagemRetorno()) {
-                System.out.println(msgRetorno.getMensagem());
-            }
+            Cancelamento cancelamento = (Cancelamento) objetoModelo;
+            super.setMensagemRetorno(cneResposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());
         } catch (JAXBException ex) {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -3,6 +3,7 @@
   <persistence-unit name="NFSE" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>org.linepack.nfsemaringa.model.Cancelamento</class>
+    <class>org.linepack.nfsemaringa.model.Mensagem</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/nfse"/>
       <property name="javax.persistence.jdbc.user" value="nfse"/>
