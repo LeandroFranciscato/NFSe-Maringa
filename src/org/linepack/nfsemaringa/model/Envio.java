@@ -7,8 +7,8 @@ package org.linepack.nfsemaringa.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Clob;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -101,8 +101,10 @@ public class Envio implements Serializable {
     private String usuarioAlteracao;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataAlteracao;
-    private Clob xmlEnvio;
-    private Clob xmlRetorno;
+    @Column(columnDefinition = "CLOB")
+    private String xmlEnvio;
+    @Column(columnDefinition = "CLOB")
+    private String xmlRetorno;
 
     public Long getId() {
         return id;
@@ -560,19 +562,19 @@ public class Envio implements Serializable {
         this.dataAlteracao = dataAlteracao;
     }
 
-    public Clob getXmlEnvio() {
+    public String getXmlEnvio() {
         return xmlEnvio;
     }
 
-    public void setXmlEnvio(Clob xmlEnvio) {
+    public void setXmlEnvio(String xmlEnvio) {
         this.xmlEnvio = xmlEnvio;
     }
 
-    public Clob getXmlRetorno() {
+    public String getXmlRetorno() {
         return xmlRetorno;
     }
 
-    public void setXmlRetorno(Clob xmlRetorno) {
+    public void setXmlRetorno(String xmlRetorno) {
         this.xmlRetorno = xmlRetorno;
     }
 

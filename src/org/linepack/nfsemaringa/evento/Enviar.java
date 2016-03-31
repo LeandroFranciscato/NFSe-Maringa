@@ -16,12 +16,14 @@ import br.org.abrasf.nfse.TcInfDeclaracaoPrestacaoServico;
 import br.org.abrasf.nfse.TcInfRps;
 import br.org.abrasf.nfse.TcValoresDeclaracaoServico;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -43,21 +45,21 @@ import org.xml.sax.SAXException;
  */
 public class Enviar extends EventoModelo {
 
-    public Enviar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
+    public Enviar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         EnvioDAO envioDAO = new EnvioDAO();
         for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {
             this.tagID = "InfDeclaracaoPrestacaoServico";
-            this.objetoModelo = envio;
+            this.objetoModelo = (Envio) envio;
             super.run();
         }
     }
 
     @Override
-    protected String formacaoXml(Object objetoModelo) {
-        Envio envio = (Envio) objetoModelo;
+    protected String formaXml() {
         String xml = null;
         try {
-
+            Envio envio = (Envio) this.objetoModelo;
+            
             // RPS
             TcIdentificacaoRps identificacaoRps = new TcIdentificacaoRps();
             identificacaoRps.setNumero(BigInteger.valueOf(envio.getNumeroRps()));
@@ -166,47 +168,28 @@ public class Enviar extends EventoModelo {
             GerarNfseEnvio nfseEnvio = new GerarNfseEnvio();
             nfseEnvio.setRps(declaracao);
 
-            xml = MarshallerUtil.marshal(GerarNfseEnvio.class, nfseEnvio);
-        } catch (DatatypeConfigurationException | JAXBException ex) {
+            xml = MarshallerUtil.marshal(GerarNfseEnvio.class, nfseEnvio);            
+
+        } catch (DatatypeConfigurationException | JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        this.atualizaOrigem(xml, envio, "ENVIO");
 
         return xml;
     }
 
     @Override
-    protected String envioXml(String xmlEnvio) {
+    protected String enviaXml(String xmlEnvio) {
         return super.getConnectionPort().gerarNfse(xmlEnvio);
     }
 
     @Override
-    protected void retornoXml(String xmlRetorno, Object objetoModelo) {
+    protected void retornaXml(String xmlRetorno) {
         try {
             GerarNfseResposta resposta = (GerarNfseResposta) UnmarshallerUtil.unmarshal(GerarNfseResposta.class, xmlRetorno);
-            Envio envio = (Envio) objetoModelo;
-            super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Envio", envio.getId());
-            this.atualizaOrigem(xmlRetorno, envio, "RETORNO");
-        } catch (JAXBException ex) {
+            Envio envio = (Envio) this.objetoModelo;
+            super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Envio", envio.getId());            
+        } catch (JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @Override
-    protected void atualizaOrigem(String xml, Object objetoModelo, String tipo) {
-        try {
-            Envio envio = (Envio) objetoModelo;
-            if (tipo == "ENVIO") {
-                envio.setXmlEnvio(ConverterUtil.stringToClob(xml));
-            } else {
-                envio.setXmlRetorno(ConverterUtil.stringToClob(xml));
-            }
-            EnvioDAO envioDAO = new EnvioDAO();
-            envioDAO.update(envio);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }

@@ -12,11 +12,13 @@ import br.org.abrasf.nfse.TcIdentificacaoNfse;
 import br.org.abrasf.nfse.TcInfPedidoCancelamento;
 import br.org.abrasf.nfse.TcPedidoCancelamento;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -36,7 +38,7 @@ import org.xml.sax.SAXException;
  */
 public class Cancelar extends EventoModelo {
 
-    public Cancelar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
+    public Cancelar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         CancelamentoDAO cancelamentoDAO = new CancelamentoDAO();
         for (Object cancelamento : cancelamentoDAO.getListByNamedQuery("cancelamentosPendentes")) {
             this.tagID = "InfPedidoCancelamento";
@@ -46,34 +48,34 @@ public class Cancelar extends EventoModelo {
     }
 
     @Override
-    public String formacaoXml(Object objeto) {
-
-        Cancelamento cancelamento = (Cancelamento) objeto;
-
-        TcInfPedidoCancelamento tipc = new TcInfPedidoCancelamento();
-        tipc.setCodigoCancelamento(new Integer(1).byteValue());
-        tipc.setId(cancelamento.getId().toString());
-
-        TcIdentificacaoNfse tin = new TcIdentificacaoNfse();
-        tin.setCodigoMunicipio(cancelamento.getCodigoMunicipio());
-        tin.setInscricaoMunicipal(cancelamento.getInscricaoMunicipal());
-        TcCpfCnpj cnpj = new TcCpfCnpj();
-        cnpj.setCnpj(cancelamento.getCnpj());
-        tin.setCpfCnpj(cnpj);
-        tin.setNumero(cancelamento.getNumeroNota());
-
-        tipc.setIdentificacaoNfse(tin);
-
-        TcPedidoCancelamento tpc = new TcPedidoCancelamento();
-        tpc.setInfPedidoCancelamento(tipc);
-
-        CancelarNfseEnvio cancelarNfseEnvio = new CancelarNfseEnvio();
-        cancelarNfseEnvio.setPedido(tpc);
-
+    public String formaXml() {
         String xml = null;
         try {
-            xml = MarshallerUtil.marshal(CancelarNfseEnvio.class, cancelarNfseEnvio);
-        } catch (JAXBException ex) {
+            Cancelamento cancelamento = (Cancelamento) this.objetoModelo;
+
+            TcInfPedidoCancelamento tipc = new TcInfPedidoCancelamento();
+            tipc.setCodigoCancelamento(new Integer(1).byteValue());
+            tipc.setId(cancelamento.getId().toString());
+
+            TcIdentificacaoNfse tin = new TcIdentificacaoNfse();
+            tin.setCodigoMunicipio(cancelamento.getCodigoMunicipio());
+            tin.setInscricaoMunicipal(cancelamento.getInscricaoMunicipal());
+            TcCpfCnpj cnpj = new TcCpfCnpj();
+            cnpj.setCnpj(cancelamento.getCnpj());
+            tin.setCpfCnpj(cnpj);
+            tin.setNumero(cancelamento.getNumeroNota());
+
+            tipc.setIdentificacaoNfse(tin);
+
+            TcPedidoCancelamento tpc = new TcPedidoCancelamento();
+            tpc.setInfPedidoCancelamento(tipc);
+
+            CancelarNfseEnvio cancelarNfseEnvio = new CancelarNfseEnvio();
+            cancelarNfseEnvio.setPedido(tpc);
+                       
+            xml = MarshallerUtil.marshal(CancelarNfseEnvio.class, cancelarNfseEnvio);        
+        
+        } catch (IllegalArgumentException | JAXBException ex) {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -81,25 +83,19 @@ public class Cancelar extends EventoModelo {
     }
 
     @Override
-    public String envioXml(String xmlEnvio) {
+    public String enviaXml(String xmlEnvio) {
         return super.getConnectionPort().cancelarNfse(xmlEnvio);
     }
 
     @Override
-    public void retornoXml(String xmlRetorno, Object objetoModelo) {
+    public void retornaXml(String xmlRetorno) {
         try {
             CancelarNfseResposta cneResposta = (CancelarNfseResposta) UnmarshallerUtil.unmarshal(CancelarNfseResposta.class, xmlRetorno);
-            Cancelamento cancelamento = (Cancelamento) objetoModelo;
-            super.setMensagemRetorno(cneResposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());
-        } catch (JAXBException ex) {
+            Cancelamento cancelamento = (Cancelamento) this.objetoModelo;
+            super.setMensagemRetorno(cneResposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());            
+        } catch (JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @Override
-    protected void atualizaOrigem(String xml, Object objetoModelo, String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
 }

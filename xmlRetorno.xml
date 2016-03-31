@@ -12,53 +12,63 @@
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
-            <Codigo>1839</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}IssRetido': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2'.
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}CodigoPais': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '4'.
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
             <Codigo>1824</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}IssRetido': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsSimNao'.
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}CodigoPais': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsCodigoPaisBacen'.
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
-            <Codigo>1839</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}ExigibilidadeISS': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2|3|4|5|6|7'.
-            </Mensagem>
-        </MensagemRetorno>
-        <MensagemRetorno>
-            <Codigo>1824</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}ExigibilidadeISS': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsExigibilidadeISS'.
-            </Mensagem>
-        </MensagemRetorno>
-        <MensagemRetorno>
-            <Codigo>1831</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}InscricaoMunicipal': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cnpj': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '14'.
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
             <Codigo>1824</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}InscricaoMunicipal': '' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsInscricaoMunicipal'.
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cnpj': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsCnpj'.
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
-            <Codigo>1831</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Art': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.
-            </Mensagem>
-        </MensagemRetorno>
-        <MensagemRetorno>
-            <Codigo>1824</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Art': '' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsArt'.
-            </Mensagem>
-        </MensagemRetorno>
-        <MensagemRetorno>
-            <Codigo>1839</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}OptanteSimplesNacional': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2'.
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cnpj': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '14'.
             </Mensagem>
         </MensagemRetorno>
         <MensagemRetorno>
             <Codigo>1824</Codigo>
-            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}OptanteSimplesNacional': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsSimNao'.
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cnpj': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsCnpj'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Uf': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '2'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Uf': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsUf'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}CodigoPais': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '4'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}CodigoPais': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsCodigoPaisBacen'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1830</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cep': [facet 'length'] The value has a length of '1'; this differs from the allowed length of '8'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Cep': '1' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsCep'.
             </Mensagem>
         </MensagemRetorno>
     </ListaMensagemRetorno>

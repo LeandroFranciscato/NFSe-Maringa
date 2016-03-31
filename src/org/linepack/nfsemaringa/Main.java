@@ -6,11 +6,13 @@
 package org.linepack.nfsemaringa;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
+import java.sql.SQLException;
 import javax.xml.bind.JAXBException;
 import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.XMLSignatureException;
@@ -25,9 +27,9 @@ import org.xml.sax.SAXException;
  */
 public class Main {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException {
         //Cancelar cancelar = new Cancelar();
-        Enviar enviar = new Enviar();
+        Enviar enviar = new Enviar();                        
     }
-
+   
 }
