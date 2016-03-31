@@ -16,7 +16,7 @@ import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
-import org.linepack.nfsemaringa.eventos.Cancelar;
+import org.linepack.nfsemaringa.evento.Enviar;
 import org.xml.sax.SAXException;
 
 /**
@@ -26,7 +26,8 @@ import org.xml.sax.SAXException;
 public class Main {
 
     public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException {
-        Cancelar cancelar = new Cancelar();
+        //Cancelar cancelar = new Cancelar();
+        Enviar enviar = new Enviar();
     }
 
 }

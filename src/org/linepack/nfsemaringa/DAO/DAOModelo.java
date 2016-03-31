@@ -16,37 +16,43 @@ import org.linepack.nfsemaringa.util.EntityManagerUtil;
  * @author root
  */
 public class DAOModelo {
-    
+
     private final EntityManager entityManager;
-    
-    public DAOModelo(){
+
+    public DAOModelo() {
         this.entityManager = new EntityManagerUtil().getEntityManager();
     }
-    
-    public void insert(Object object){
+
+    public void insert(Object object) {
         entityManager.persist(object);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
-        
-    public Object getByID(String modelClassName, Integer id){
+
+    public void update(Object object) {
+        entityManager.merge(object);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+    public Object getByID(String modelClassName, Integer id) {
         Query query = this.entityManager.createQuery(""
                 + "select a"
-                + "  from "+modelClassName+""
-                + " where id = "+id);                
+                + "  from " + modelClassName + ""
+                + " where id = " + id);
         Object object = new Object();
-        object =  query.getResultList();        
+        object = query.getResultList();
         this.entityManager.close();
         return object;
-        
-    };
-    
-    public List getList(String stmt){
-        Query query = this.entityManager.createQuery(stmt);                
+
+    }
+
+    public List getListByNamedQuery(String namedQueryName) {
+        Query query = this.entityManager.createNamedQuery(namedQueryName);
         List objectList = new ArrayList<>();
-        objectList = (List) query.getResultList();        
-        this.entityManager.close();        
+        objectList = (List) query.getResultList();
+        this.entityManager.close();
         return objectList;
     }
-    
+
 }

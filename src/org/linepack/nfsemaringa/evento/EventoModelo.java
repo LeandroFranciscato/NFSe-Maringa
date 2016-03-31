@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.linepack.nfsemaringa.eventos;
+package org.linepack.nfsemaringa.evento;
 
 import br.org.abrasf.nfse.TcMensagemRetorno;
 import https.isseteste_maringa_pr_gov_br.ws.NfseServicesPort;
@@ -21,6 +21,7 @@ import javax.xml.crypto.MarshalException;
 import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
+import org.linepack.nfsemaringa.DAO.DAOModelo;
 import org.linepack.nfsemaringa.DAO.MensagemDAO;
 import org.linepack.nfsemaringa.model.Mensagem;
 import org.linepack.nfsemaringa.util.AssinadorXml;
@@ -50,7 +51,7 @@ public abstract class EventoModelo {
             xmlEnvio = this.assinaXml(xmlEnvio, tagID, "CERTIFICADO.jks", "");
         }
         String xmlRetorno = this.envioXml(xmlEnvio);
-        this.retornoXml(xmlRetorno, objetoModelo);
+        this.retornoXml(xmlRetorno, objetoModelo);       
     }
 
     protected abstract String formacaoXml(Object objetoModelo);
@@ -65,7 +66,7 @@ public abstract class EventoModelo {
 
     protected abstract String envioXml(String xmlEnvio);
 
-    protected abstract void retornoXml(String XmlRetorno, Object objetoModelo);
+    protected abstract void retornoXml(String xmlRetorno, Object objetoModelo);
 
     protected void setMensagemRetorno(List<TcMensagemRetorno> mensagens, String eventoGerador, Long idEventoGerador) {
         for (TcMensagemRetorno mensagemRetorno : mensagens) {
@@ -80,4 +81,12 @@ public abstract class EventoModelo {
             mensagemDAO.insert(mensagemModel);
         }
     }
+    
+    /**
+     *
+     * @param xml
+     * @param objetoModelo
+     * @param tipo deve ser ENVIO ou RETORNO
+     */
+    protected abstract void atualizaOrigem(String xml, Object objetoModelo, String tipo);
 }

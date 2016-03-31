@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.linepack.nfsemaringa.eventos;
+package org.linepack.nfsemaringa.evento;
 
 import br.org.abrasf.nfse.CancelarNfseEnvio;
 import br.org.abrasf.nfse.CancelarNfseResposta;
@@ -38,11 +38,7 @@ public class Cancelar extends EventoModelo {
 
     public Cancelar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
         CancelamentoDAO cancelamentoDAO = new CancelamentoDAO();
-        for (Object cancelamento : cancelamentoDAO.getList(""
-                + "select c "
-                + "  from Cancelamento c "
-                + " where c.isCancelada = 0 ")) {
-
+        for (Object cancelamento : cancelamentoDAO.getListByNamedQuery("cancelamentosPendentes")) {
             this.tagID = "InfPedidoCancelamento";
             this.objetoModelo = cancelamento;
             super.run();
@@ -99,4 +95,11 @@ public class Cancelar extends EventoModelo {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    protected void atualizaOrigem(String xml, Object objetoModelo, String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

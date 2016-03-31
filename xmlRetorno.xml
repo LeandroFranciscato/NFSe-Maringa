@@ -1,2 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CancelarNfseResposta xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd "><ListaMensagemRetorno><MensagemRetorno><Codigo>E79</Codigo><Mensagem>NFS-e já está cancelada.</Mensagem><Correcao>Verifique e informe corretamente os dados da NFS-e que deseja cancelar.</Correcao></MensagemRetorno><MensagemRetorno><Codigo>L8</Codigo><Mensagem>Data limite do cancelamento da NFS-e expirou</Mensagem><Correcao>Cancelamento posterior a data limite somente por meio de processo administrativo</Correcao></MensagemRetorno></ListaMensagemRetorno></CancelarNfseResposta>
+<GerarNfseResposta xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd ">
+    <ListaMensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}DataEmissao': '' is not a valid value of the atomic type 'xs:date'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Competencia': '' is not a valid value of the atomic type 'xs:date'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1839</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}IssRetido': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}IssRetido': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsSimNao'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1839</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}ExigibilidadeISS': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2|3|4|5|6|7'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}ExigibilidadeISS': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsExigibilidadeISS'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1831</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}InscricaoMunicipal': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}InscricaoMunicipal': '' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsInscricaoMunicipal'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1831</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Art': [facet 'minLength'] The value has a length of '0'; this underruns the allowed minimum length of '1'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}Art': '' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsArt'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1839</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}OptanteSimplesNacional': [facet 'pattern'] The value '0' is not accepted by the pattern '1|2'.
+            </Mensagem>
+        </MensagemRetorno>
+        <MensagemRetorno>
+            <Codigo>1824</Codigo>
+            <Mensagem>Element '{http://www.abrasf.org.br/nfse.xsd}OptanteSimplesNacional': '0' is not a valid value of the atomic type '{http://www.abrasf.org.br/nfse.xsd}tsSimNao'.
+            </Mensagem>
+        </MensagemRetorno>
+    </ListaMensagemRetorno>
+</GerarNfseResposta>

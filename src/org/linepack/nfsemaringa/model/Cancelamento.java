@@ -7,11 +7,13 @@ package org.linepack.nfsemaringa.model;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.sql.Clob;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 
 /**
@@ -19,6 +21,7 @@ import javax.persistence.Temporal;
  * @author root
  */
 @Entity
+@NamedQuery(name = "cancelamentosPendentes", query = "select c from Cancelamento c where c.isCancelada = 0")
 public class Cancelamento implements Serializable {
 
     @Id
@@ -36,6 +39,9 @@ public class Cancelamento implements Serializable {
     private String usuarioAlteracao;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataAlteracao;
+
+    private Clob xmlEnvio;
+    private Clob xmlRetorno;
 
     public Long getId() {
         return id;
@@ -117,6 +123,20 @@ public class Cancelamento implements Serializable {
         this.dataAlteracao = dataAlteracao;
     }
 
-    
-    
+    public Clob getXmlEnvio() {
+        return xmlEnvio;
+    }
+
+    public void setXmlEnvio(Clob xmlEnvio) {
+        this.xmlEnvio = xmlEnvio;
+    }
+
+    public Clob getXmlRetorno() {
+        return xmlRetorno;
+    }
+
+    public void setXmlRetorno(Clob xmlRetorno) {
+        this.xmlRetorno = xmlRetorno;
+    }
+
 }
