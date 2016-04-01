@@ -1,80 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<GerarNfseEnvio xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+<?xml version="1.0" encoding="UTF-8"?><GerarNfseEnvio xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
     <Rps>
         <InfDeclaracaoPrestacaoServico Id="1">
             <Rps>
                 <IdentificacaoRps>
-                    <Numero>1</Numero>
+                    <Numero>2</Numero>
                     <Serie>1</Serie>
                     <Tipo>1</Tipo>
                 </IdentificacaoRps>
-                <DataEmissao/>
+                <DataEmissao>2016-03-31Z</DataEmissao>
                 <Status>1</Status>
             </Rps>
-            <Competencia/>
+            <Competencia>2016-03-31Z</Competencia>
             <Servico>
                 <Valores>
-                    <ValorServicos>1</ValorServicos>
-                    <ValorDeducoes>1</ValorDeducoes>
-                    <ValorPis>1</ValorPis>
-                    <ValorCofins>1</ValorCofins>
-                    <ValorInss>1</ValorInss>
-                    <ValorIr>1</ValorIr>
-                    <ValorCsll>1</ValorCsll>
-                    <OutrasRetencoes>1</OutrasRetencoes>
-                    <ValorIss>1</ValorIss>
-                    <Aliquota>1</Aliquota>
-                    <DescontoIncondicionado>1</DescontoIncondicionado>
-                    <DescontoCondicionado>1</DescontoCondicionado>
+                    <ValorServicos>1000</ValorServicos>
+                    <ValorDeducoes>0</ValorDeducoes>
+                    <ValorPis>0</ValorPis>
+                    <ValorCofins>0</ValorCofins>
+                    <ValorInss>0</ValorInss>
+                    <ValorIr>0</ValorIr>
+                    <ValorCsll>0</ValorCsll>
+                    <OutrasRetencoes>0</OutrasRetencoes>
+                    <ValorIss>0</ValorIss>
+                    <Aliquota>3</Aliquota>
+                    <DescontoIncondicionado>0</DescontoIncondicionado>
+                    <DescontoCondicionado>0</DescontoCondicionado>
                 </Valores>
-                <IssRetido>1</IssRetido>
+                <IssRetido>2</IssRetido>
                 <ResponsavelRetencao>1</ResponsavelRetencao>
-                <ItemListaServico>1</ItemListaServico>
-                <CodigoCnae>1</CodigoCnae>
+                <ItemListaServico>0701</ItemListaServico>
+                <CodigoCnae>7490103</CodigoCnae>
                 <CodigoTributacaoMunicipio>1</CodigoTributacaoMunicipio>
-                <Discriminacao>1</Discriminacao>
-                <CodigoMunicipio>1</CodigoMunicipio>
-                <CodigoPais>1</CodigoPais>
+                <Discriminacao>SERVIÇOS PRESTADOS</Discriminacao>
+                <CodigoMunicipio>4115200</CodigoMunicipio>
+                <CodigoPais>1058</CodigoPais>
                 <ExigibilidadeISS>1</ExigibilidadeISS>
-                <MunicipioIncidencia>1</MunicipioIncidencia>
-                <NumeroProcesso>1</NumeroProcesso>
+                <MunicipioIncidencia>4115200</MunicipioIncidencia>
+                <NumeroProcesso>38300/2012</NumeroProcesso>
             </Servico>
             <Prestador>
                 <CpfCnpj>
-                    <Cnpj>1</Cnpj>
+                    <Cnpj>72042799000190</Cnpj>
                 </CpfCnpj>
-                <InscricaoMunicipal>1</InscricaoMunicipal>
+                <InscricaoMunicipal>054170</InscricaoMunicipal>
             </Prestador>
             <Tomador>
                 <IdentificacaoTomador>
                     <CpfCnpj>
-                        <Cnpj>1</Cnpj>
+                        <Cnpj>48539407000118</Cnpj>
                     </CpfCnpj>
-                    <InscricaoMunicipal>1</InscricaoMunicipal>
+                    <InscricaoMunicipal>054178</InscricaoMunicipal>
                 </IdentificacaoTomador>
-                <RazaoSocial>1</RazaoSocial>
+                <RazaoSocial>LINEPACK</RazaoSocial>
                 <Endereco>
-                    <Endereco>1</Endereco>
-                    <Numero>1</Numero>
-                    <Complemento>1</Complemento>
-                    <Bairro> 1</Bairro>
-                    <CodigoMunicipio>1</CodigoMunicipio>
-                    <Uf>1</Uf>
-                    <CodigoPais>1</CodigoPais>
-                    <Cep>1</Cep>
+                    <Endereco>ENDEREÇO TOMADOR</Endereco>
+                    <Numero>12</Numero>
+                    <Complemento>COMPLEMENTO ENDEREÇO TOMADOR</Complemento>
+                    <Bairro>BAIRRO TOMADOR</Bairro>
+                    <CodigoMunicipio>4115200</CodigoMunicipio>
+                    <Uf>PR</Uf>
+                    <CodigoPais>1058</CodigoPais>
+                    <Cep>86990000</Cep>
                 </Endereco>
                 <Contato>
-                    <Telefone>1</Telefone>
-                    <Email>1</Email>
+                    <Telefone>4498659032</Telefone>
+                    <Email>LINEPACK@UNICAMPO.COOP.BR</Email>
                 </Contato>
             </Tomador>
-            <ConstrucaoCivil>
-                <CodigoObra>1</CodigoObra>
-                <Art>1</Art>
-            </ConstrucaoCivil>
-            <RegimeEspecialTributacao>1</RegimeEspecialTributacao>
-            <OptanteSimplesNacional>1</OptanteSimplesNacional>
-            <IncentivoFiscal>1</IncentivoFiscal>
+            <RegimeEspecialTributacao>4</RegimeEspecialTributacao>
+            <OptanteSimplesNacional>2</OptanteSimplesNacional>
+            <IncentivoFiscal>2</IncentivoFiscal>
         </InfDeclaracaoPrestacaoServico>
         <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
             <SignedInfo>
@@ -85,14 +80,14 @@
                         <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
                     </Transforms>
                     <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
-                    <DigestValue>fyPWEPdYxuLp8p8u4AAz2nIwgQw=</DigestValue>
+                    <DigestValue>KBVQE3vsnwJEbub647GShMICEMc=</DigestValue>
                 </Reference>
             </SignedInfo>
-            <SignatureValue>SmE4bHYTQ0MKP2RBfjTdQnX6MiUnYiV8+sJLfCgP1LMop3nyI7U6yfGeT9K/xgib5Ek4LcijJ5Sq
-                urQLRVUXk1ZYzdMT5rbqReoLBhX62L4nEfeVvhv7gB/TmyxEWpBIQE1lZF6YwZuodZSR938Thxzx
-                FU1JnEV4bqDtjCvqC+sXHZTHm0kM8khGDI9ERlc/43LetZiKUo+qBJxY9rDbxcac4pdktFhlhPM8
-                Tx5MBxg7MhCKHsysPdWUWRY0sG81MKKYfmFTl2lbJI3Ofq/CU2O4kZaxPREgm9E30AwHQ22/Ui3N
-                rTtAHPKkTL7noCiuTCO6PYCgwXN7FhMD5Zuh6g==</SignatureValue>
+            <SignatureValue>PKCGUYkW6gl3Qf7pQ5wjMRqDzbxgOPIIRUix5kj82P/gV/ORcBrwsyiUgetjEWTh22WYtJNxQp5C
+                4gBCYVyL/ABXn0Ru+LgSszai6kWWijbpwfwHYnJ8E4Els/QYWDpO0PGCHDt+TlkTgtPG5rq9viaJ
+                R0rvu3e94+okazOmPUIBQtka0Jcrdj1Sg/tW2yl2Y1+sxyXDMYt+iRLKkxkXkmEsP9VO+IoXYlKU
+                pmj3MNjywtiGOHEkFA6ywXTXdCD6qBuLpOa7DGKYEL/5pR3eRfulmH4gwaJMpssRlHUyC3Er0Nd0
+                x9Mhr6wOpIXD3hF/U5Vybml8Sc8WVD+ojt/pPA==</SignatureValue>
             <KeyInfo>
                 <X509Data>
                     <X509SubjectName>CN=COOPERATIVA DE TRABALHO DOS PROFISSIONAIS DE AGRO:72042799000190,OU=AR SCCCHECK,OU=RFB e-CNPJ A1,OU=Secretaria da Receita Federal do Brasil - RFB,O=ICP-Brasil,L=MARINGA,ST=PR,C=BR</X509SubjectName>

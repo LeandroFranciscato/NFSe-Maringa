@@ -7,6 +7,7 @@ package org.linepack.nfsemaringa.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
+import static javafx.scene.input.KeyCode.T;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.linepack.nfsemaringa.util.EntityManagerUtil;
@@ -17,7 +18,7 @@ import org.linepack.nfsemaringa.util.EntityManagerUtil;
  */
 public class DAOModelo {
 
-    private final EntityManager entityManager;
+    public EntityManager entityManager;
 
     public DAOModelo() {
         this.entityManager = new EntityManagerUtil().getEntityManager();
@@ -53,6 +54,6 @@ public class DAOModelo {
         objectList = (List) query.getResultList();
         this.entityManager.close();
         return objectList;
-    }
+    }   
 
 }

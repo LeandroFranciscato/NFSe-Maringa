@@ -19,6 +19,7 @@ import javax.xml.crypto.dsig.XMLSignatureException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import org.linepack.nfsemaringa.evento.Enviar;
+import org.linepack.nfsemaringa.util.Conexao;
 import org.xml.sax.SAXException;
 
 /**
@@ -27,8 +28,8 @@ import org.xml.sax.SAXException;
  */
 public class Main {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException {
-        //Cancelar cancelar = new Cancelar();
+    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException {        
+        Conexao.certifica();
         Enviar enviar = new Enviar();                        
     }
    

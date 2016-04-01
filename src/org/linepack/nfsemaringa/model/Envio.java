@@ -29,7 +29,7 @@ public class Envio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // RPS
+    // RPS            
     private Integer numeroRps;
     private String serieRps;
     private String tipoRps;

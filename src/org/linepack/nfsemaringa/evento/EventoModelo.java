@@ -28,7 +28,6 @@ import org.linepack.nfsemaringa.DAO.DAOModelo;
 import org.linepack.nfsemaringa.DAO.MensagemDAO;
 import org.linepack.nfsemaringa.model.Mensagem;
 import org.linepack.nfsemaringa.util.AssinadorXml;
-import org.linepack.nfsemaringa.util.Conexao;
 import org.xml.sax.SAXException;
 
 /**
@@ -48,15 +47,14 @@ public abstract class EventoModelo {
     }
 
     protected void run() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        Conexao.certifica();
         String xmlEnvio = this.formaXml();
         if (isSigned) {
             xmlEnvio = this.assinaXml(xmlEnvio, tagID, "CERTIFICADO.jks", "");
-            atualizaXmlOrigem(xmlEnvio, "setXmlEnvio");
         }
+        atualizaXmlOrigem(xmlEnvio, "setXmlEnvio");
         String xmlRetorno = this.enviaXml(xmlEnvio);
         atualizaXmlOrigem(xmlRetorno, "setXmlRetorno");
-        this.retornaXml(xmlRetorno);       
+        this.retornaXml(xmlRetorno);
     }
 
     protected abstract String formaXml();
@@ -74,6 +72,8 @@ public abstract class EventoModelo {
     protected abstract void retornaXml(String xmlRetorno);
 
     protected void setMensagemRetorno(List<TcMensagemRetorno> mensagens, String eventoGerador, Long idEventoGerador) {
+        
+        new MensagemDAO().deleteMensagensAnteriores(eventoGerador, idEventoGerador);
         for (TcMensagemRetorno mensagemRetorno : mensagens) {
             Mensagem mensagemModel = new Mensagem();
             mensagemModel.setEventoGerador(eventoGerador);
@@ -81,22 +81,20 @@ public abstract class EventoModelo {
             mensagemModel.setDataInsercao(new Date());
             mensagemModel.setCodigo(mensagemRetorno.getCodigo());
             mensagemModel.setDescricao(mensagemRetorno.getMensagem());
-            mensagemModel.setAcao(mensagemRetorno.getCorrecao());
-            MensagemDAO mensagemDAO = new MensagemDAO();
-            mensagemDAO.insert(mensagemModel);
+            mensagemModel.setAcao(mensagemRetorno.getCorrecao());            
+            new MensagemDAO().insert(mensagemModel);
         }
     }
-    
+
     /**
-     *     
+     *
      * @param nomeMetodo must be setXmlEnvio or setXmlRetorno
      */
-    protected void atualizaXmlOrigem(String xml, String nomeMetodo) throws NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException{        
+    protected void atualizaXmlOrigem(String xml, String nomeMetodo) throws NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Method metodo = this.objetoModelo.getClass().getMethod(nomeMetodo, String.class);
         metodo.invoke(this.objetoModelo, xml);
         DAOModelo daoModelo = new DAOModelo();
         daoModelo.update(this.objetoModelo);
-    }
-    
-    
+    }        
+
 }

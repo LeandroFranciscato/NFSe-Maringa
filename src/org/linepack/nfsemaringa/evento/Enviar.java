@@ -47,9 +47,9 @@ public class Enviar extends EventoModelo {
 
     public Enviar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         EnvioDAO envioDAO = new EnvioDAO();
-        for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {
+        for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {            
             this.tagID = "InfDeclaracaoPrestacaoServico";
-            this.objetoModelo = (Envio) envio;
+            this.objetoModelo = envio;
             super.run();
         }
     }
@@ -68,7 +68,7 @@ public class Enviar extends EventoModelo {
 
             TcInfRps rps = new TcInfRps();
             rps.setIdentificacaoRps(identificacaoRps);
-            rps.setDataEmissao(ConverterUtil.dateToXMLGregorianCalendar(envio.getDataEmissaoRps()));/**/
+            rps.setDataEmissao(ConverterUtil.dateToXMLGregorianCalendar(envio.getDataEmissaoRps()));
             rps.setStatus(envio.getStatusRps().byteValue());
 
             // SERVIÇO
@@ -144,11 +144,6 @@ public class Enviar extends EventoModelo {
 
             tomador.setContato(contato);
 
-            // CONSTRUÇÃO CIVIL
-            TcDadosConstrucaoCivil civil = new TcDadosConstrucaoCivil();
-            civil.setCodigoObra(envio.getCodigoObra());
-            civil.setArt(envio.getArtObra());
-
             // GERAL
             TcInfDeclaracaoPrestacaoServico inf = new TcInfDeclaracaoPrestacaoServico();
             inf.setId(envio.getId().toString());
@@ -157,8 +152,18 @@ public class Enviar extends EventoModelo {
             inf.setServico(servico);
             inf.setPrestador(prestador);
             inf.setTomador(tomador);
-            inf.setConstrucaoCivil(civil);
-            inf.setRegimeEspecialTributacao(envio.getRegimeEspecialTributacao().byteValue());
+
+            // CONSTRUÇÃO CIVIL            
+            if (envio.getCodigoObra() != null) {
+                TcDadosConstrucaoCivil civil = new TcDadosConstrucaoCivil();
+                civil.setCodigoObra(envio.getCodigoObra());
+                civil.setArt(envio.getArtObra());
+                inf.setConstrucaoCivil(civil);
+            }
+
+            if (envio.getRegimeEspecialTributacao() != null) {
+                inf.setRegimeEspecialTributacao(envio.getRegimeEspecialTributacao().byteValue());
+            }
             inf.setOptanteSimplesNacional(envio.getOptanteSimplesNacional().byteValue());
             inf.setIncentivoFiscal(envio.getIncentivoFiscal().byteValue());
 
@@ -168,7 +173,7 @@ public class Enviar extends EventoModelo {
             GerarNfseEnvio nfseEnvio = new GerarNfseEnvio();
             nfseEnvio.setRps(declaracao);
 
-            xml = MarshallerUtil.marshal(GerarNfseEnvio.class, nfseEnvio);            
+            xml = MarshallerUtil.marshal(GerarNfseEnvio.class, nfseEnvio);
 
         } catch (DatatypeConfigurationException | JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
@@ -187,7 +192,12 @@ public class Enviar extends EventoModelo {
         try {
             GerarNfseResposta resposta = (GerarNfseResposta) UnmarshallerUtil.unmarshal(GerarNfseResposta.class, xmlRetorno);
             Envio envio = (Envio) this.objetoModelo;
-            super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Envio", envio.getId());            
+            if (resposta.getListaMensagemRetorno() != null) {
+                super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Envio", envio.getId());
+            }else{
+                envio.setIsEnviada(1);
+                new EnvioDAO().update(envio);
+            }
         } catch (JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
         }
