@@ -15,13 +15,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author root
  */
 @Entity
-@NamedQuery(name = "cancelamentosPendentes", query = "select c from Cancelamento c where c.isCancelada = 0")
+@NamedQuery(name = "cancelamentosPendentes", query = "select c from Cancelamento c where c.isCancelada = 0 and c.isProblematica = 0")
 public class Cancelamento implements Serializable {
 
     @Id
@@ -33,6 +34,7 @@ public class Cancelamento implements Serializable {
     private String inscricaoMunicipal;
     private Integer codigoMunicipio;
     private Integer isCancelada;
+    private Integer isProblematica;
     private String usuarioInsercao;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dataInsercao;
@@ -91,6 +93,14 @@ public class Cancelamento implements Serializable {
 
     public void setIsCancelada(Integer isCancelada) {
         this.isCancelada = isCancelada;
+    }
+
+    public Integer getIsProblematica() {
+        return isProblematica;
+    }
+
+    public void setIsProblematica(Integer isProblematica) {
+        this.isProblematica = isProblematica;
     }
 
     public String getUsuarioInsercao() {

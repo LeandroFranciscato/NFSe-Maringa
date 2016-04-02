@@ -28,6 +28,7 @@ import org.linepack.nfsemaringa.DAO.DAOModelo;
 import org.linepack.nfsemaringa.DAO.MensagemDAO;
 import org.linepack.nfsemaringa.model.Mensagem;
 import org.linepack.nfsemaringa.util.AssinadorXml;
+import org.linepack.nfsemaringa.util.Conexao;
 import org.xml.sax.SAXException;
 
 /**
@@ -46,10 +47,10 @@ public abstract class EventoModelo {
         this.objetoModelo = new Object();
     }
 
-    protected void run() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    protected void run(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         String xmlEnvio = this.formaXml();
         if (isSigned) {
-            xmlEnvio = this.assinaXml(xmlEnvio, tagID, "CERTIFICADO.jks", "");
+            xmlEnvio = this.assinaXml(xmlEnvio, tagID, conexao.getNomeCertificadoJKS(), conexao.getSenhaCertificado());
         }
         atualizaXmlOrigem(xmlEnvio, "setXmlEnvio");
         String xmlRetorno = this.enviaXml(xmlEnvio);
@@ -66,7 +67,7 @@ public abstract class EventoModelo {
     protected NfseServicesPort getConnectionPort() {
         return new NfseServicesService().getNfseServicesPort();
     }
-
+    
     protected abstract String enviaXml(String xmlEnvio);
 
     protected abstract void retornaXml(String xmlRetorno);

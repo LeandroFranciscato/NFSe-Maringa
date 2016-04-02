@@ -7,6 +7,7 @@ package org.linepack.nfsemaringa.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import javax.persistence.TemporalType;
  * @author root
  */
 @Entity
-@NamedQuery(name = "enviosPendentes", query = "select e from Envio e where e.isEnviada = 0")
+@NamedQuery(name = "enviosPendentes", query = "select e from Envio e where e.isEnviada = 0 and e.isProblematica = 0")
 public class Envio implements Serializable {
 
     @Id
@@ -65,9 +66,9 @@ public class Envio implements Serializable {
     private String numeroProcesso;
 
     // PRESTADOR
-    private String tipoDocumentoPortador;
-    private String numeroCnpjCpfPortador;
-    private String inscricaoMunicipalPortador;
+    private String tipoDocumentoPrestador;
+    private String numeroCnpjCpfPrestador;
+    private String inscricaoMunicipalPrestador;
 
     // TOMADOR
     private String tipoDocumentoTomador;
@@ -94,6 +95,8 @@ public class Envio implements Serializable {
     private Integer optanteSimplesNacional;
     private Integer incentivoFiscal;
     private Integer isEnviada;
+    private BigInteger numeroNfse;
+    private Integer isProblematica;
 
     private String usuarioInsercao;
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
@@ -346,28 +349,28 @@ public class Envio implements Serializable {
         this.numeroProcesso = numeroProcesso;
     }
 
-    public String getTipoDocumentoPortador() {
-        return tipoDocumentoPortador;
+    public String getTipoDocumentoPrestador() {
+        return tipoDocumentoPrestador;
     }
 
-    public void setTipoDocumentoPortador(String tipoDocumentoPortador) {
-        this.tipoDocumentoPortador = tipoDocumentoPortador;
+    public void setTipoDocumentoPrestador(String tipoDocumentoPrestador) {
+        this.tipoDocumentoPrestador = tipoDocumentoPrestador;
     }
 
-    public String getNumeroCnpjCpfPortador() {
-        return numeroCnpjCpfPortador;
+    public String getNumeroCnpjCpfPrestador() {
+        return numeroCnpjCpfPrestador;
     }
 
-    public void setNumeroCnpjCpfPortador(String numeroCnpjCpfPortador) {
-        this.numeroCnpjCpfPortador = numeroCnpjCpfPortador;
+    public void setNumeroCnpjCpfPrestador(String numeroCnpjCpfPrestador) {
+        this.numeroCnpjCpfPrestador = numeroCnpjCpfPrestador;
     }
 
-    public String getInscricaoMunicipalPortador() {
-        return inscricaoMunicipalPortador;
+    public String getInscricaoMunicipalPrestador() {
+        return inscricaoMunicipalPrestador;
     }
 
-    public void setInscricaoMunicipalPortador(String inscricaoMunicipalPortador) {
-        this.inscricaoMunicipalPortador = inscricaoMunicipalPortador;
+    public void setInscricaoMunicipalPrestador(String inscricaoMunicipalPrestador) {
+        this.inscricaoMunicipalPrestador = inscricaoMunicipalPrestador;
     }
 
     public String getTipoDocumentoTomador() {
@@ -528,6 +531,22 @@ public class Envio implements Serializable {
 
     public void setIsEnviada(Integer isEnviada) {
         this.isEnviada = isEnviada;
+    }
+
+    public BigInteger getNumeroNfse() {
+        return numeroNfse;
+    }
+
+    public void setNumeroNfse(BigInteger numeroNfse) {
+        this.numeroNfse = numeroNfse;
+    }
+
+    public Integer getIsProblematica() {
+        return isProblematica;
+    }
+
+    public void setIsProblematica(Integer isProblematica) {
+        this.isProblematica = isProblematica;
     }
 
     public String getUsuarioInsercao() {

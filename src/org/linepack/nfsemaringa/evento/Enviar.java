@@ -24,6 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -34,6 +35,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import org.linepack.nfsemaringa.DAO.EnvioDAO;
 import org.linepack.nfsemaringa.model.Envio;
+import org.linepack.nfsemaringa.util.Conexao;
 import org.linepack.nfsemaringa.util.ConverterUtil;
 import org.linepack.nfsemaringa.util.MarshallerUtil;
 import org.linepack.nfsemaringa.util.UnmarshallerUtil;
@@ -45,12 +47,12 @@ import org.xml.sax.SAXException;
  */
 public class Enviar extends EventoModelo {
 
-    public Enviar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public Enviar(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         EnvioDAO envioDAO = new EnvioDAO();
-        for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {            
+        for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {
             this.tagID = "InfDeclaracaoPrestacaoServico";
             this.objetoModelo = envio;
-            super.run();
+            super.run(conexao);
         }
     }
 
@@ -59,7 +61,7 @@ public class Enviar extends EventoModelo {
         String xml = null;
         try {
             Envio envio = (Envio) this.objetoModelo;
-            
+
             // RPS
             TcIdentificacaoRps identificacaoRps = new TcIdentificacaoRps();
             identificacaoRps.setNumero(BigInteger.valueOf(envio.getNumeroRps()));
@@ -103,13 +105,13 @@ public class Enviar extends EventoModelo {
             // PRESTADOR
             TcIdentificacaoPrestador prestador = new TcIdentificacaoPrestador();
             TcCpfCnpj cpfCnpjPrestador = new TcCpfCnpj();
-            if (envio.getTipoDocumentoPortador() == "CPF") {
-                cpfCnpjPrestador.setCpf(envio.getNumeroCnpjCpfPortador());
+            if (envio.getTipoDocumentoPrestador() == "CPF") {
+                cpfCnpjPrestador.setCpf(envio.getNumeroCnpjCpfPrestador());
             } else {
-                cpfCnpjPrestador.setCnpj(envio.getNumeroCnpjCpfPortador());
+                cpfCnpjPrestador.setCnpj(envio.getNumeroCnpjCpfPrestador());
             }
             prestador.setCpfCnpj(cpfCnpjPrestador);
-            prestador.setInscricaoMunicipal(envio.getInscricaoMunicipalPortador());
+            prestador.setInscricaoMunicipal(envio.getInscricaoMunicipalPrestador());
 
             // TOMADOR
             TcIdentificacaoTomador idTomador = new TcIdentificacaoTomador();
@@ -191,13 +193,17 @@ public class Enviar extends EventoModelo {
     protected void retornaXml(String xmlRetorno) {
         try {
             GerarNfseResposta resposta = (GerarNfseResposta) UnmarshallerUtil.unmarshal(GerarNfseResposta.class, xmlRetorno);
-            Envio envio = (Envio) this.objetoModelo;
+            Envio envio = (Envio) this.objetoModelo;            
+            envio.setUsuarioAlteracao("CONECTOR");
+            envio.setDataAlteracao(new Date());
             if (resposta.getListaMensagemRetorno() != null) {
                 super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Envio", envio.getId());
-            }else{
+                envio.setIsProblematica(1);
+            } else {
                 envio.setIsEnviada(1);
-                new EnvioDAO().update(envio);
+                envio.setNumeroNfse(resposta.getListaNfse().getCompNfse().getNfse().getInfNfse().getNumero());
             }
+            new EnvioDAO().update(envio);
         } catch (JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
         }

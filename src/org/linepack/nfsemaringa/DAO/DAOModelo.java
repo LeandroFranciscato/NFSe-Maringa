@@ -39,10 +39,10 @@ public class DAOModelo {
     public Object getByID(String modelClassName, Integer id) {
         Query query = this.entityManager.createQuery(""
                 + "select a"
-                + "  from " + modelClassName + ""
-                + " where id = " + id);
+                + "  from " + modelClassName + " a "
+                + " where a.id = " + id);
         Object object = new Object();
-        object = query.getResultList();
+        object = query.getSingleResult();
         this.entityManager.close();
         return object;
 

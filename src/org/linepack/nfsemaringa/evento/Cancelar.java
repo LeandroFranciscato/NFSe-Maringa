@@ -19,6 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -28,6 +29,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import org.linepack.nfsemaringa.DAO.CancelamentoDAO;
 import org.linepack.nfsemaringa.model.Cancelamento;
+import org.linepack.nfsemaringa.util.Conexao;
 import org.linepack.nfsemaringa.util.MarshallerUtil;
 import org.linepack.nfsemaringa.util.UnmarshallerUtil;
 import org.xml.sax.SAXException;
@@ -38,12 +40,12 @@ import org.xml.sax.SAXException;
  */
 public class Cancelar extends EventoModelo {
 
-    public Cancelar() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public Cancelar(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         CancelamentoDAO cancelamentoDAO = new CancelamentoDAO();
         for (Object cancelamento : cancelamentoDAO.getListByNamedQuery("cancelamentosPendentes")) {
             this.tagID = "InfPedidoCancelamento";
             this.objetoModelo = cancelamento;
-            super.run();
+            super.run(conexao);
         }
     }
 
@@ -72,9 +74,9 @@ public class Cancelar extends EventoModelo {
 
             CancelarNfseEnvio cancelarNfseEnvio = new CancelarNfseEnvio();
             cancelarNfseEnvio.setPedido(tpc);
-                       
-            xml = MarshallerUtil.marshal(CancelarNfseEnvio.class, cancelarNfseEnvio);        
-        
+
+            xml = MarshallerUtil.marshal(CancelarNfseEnvio.class, cancelarNfseEnvio);
+
         } catch (IllegalArgumentException | JAXBException ex) {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -90,9 +92,17 @@ public class Cancelar extends EventoModelo {
     @Override
     public void retornaXml(String xmlRetorno) {
         try {
-            CancelarNfseResposta cneResposta = (CancelarNfseResposta) UnmarshallerUtil.unmarshal(CancelarNfseResposta.class, xmlRetorno);
+            CancelarNfseResposta resposta = (CancelarNfseResposta) UnmarshallerUtil.unmarshal(CancelarNfseResposta.class, xmlRetorno);
             Cancelamento cancelamento = (Cancelamento) this.objetoModelo;
-            super.setMensagemRetorno(cneResposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());            
+            cancelamento.setUsuarioAlteracao("CONECTOR");
+            cancelamento.setDataAlteracao(new Date());
+            if (resposta.getListaMensagemRetorno() != null) {
+                super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());                
+                cancelamento.setIsProblematica(1);
+            } else {
+                cancelamento.setIsCancelada(1);
+            }
+            new CancelamentoDAO().update(cancelamento);
         } catch (JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Cancelar.class.getName()).log(Level.SEVERE, null, ex);
         }

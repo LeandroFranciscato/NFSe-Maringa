@@ -5,6 +5,9 @@
  */
 package org.linepack.nfsemaringa.util;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -22,6 +25,7 @@ public class ConverterUtil {
         gc.setTime(date);
         XMLGregorianCalendar xgc = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
         return xgc.normalize();
-    }        
+    }
+  
 
 }
