@@ -31,7 +31,7 @@ import org.xml.sax.SAXException;
  */
 public class Main {
 
-    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, JAXBException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, SQLException, InstantiationException {
         Parametro parametros = new ParametroDAO().getByNamedQuery("parametroAtivo");
         if (parametros == null) {
             System.out.println("Não há parametros ATIVOS, verifique!");

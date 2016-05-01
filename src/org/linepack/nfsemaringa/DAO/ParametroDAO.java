@@ -13,7 +13,7 @@ import org.linepack.nfsemaringa.model.Parametro;
  */
 public class ParametroDAO extends DAOModelo<Parametro>{
     
-    public ParametroDAO(){
+    public ParametroDAO() throws InstantiationException, IllegalAccessException{
         super();
     }
     
