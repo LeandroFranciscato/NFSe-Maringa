@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-ws_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/ws_1"/>
-        <property name="wsdl-ws_1" location="xml-resources/web-service-references/ws_1/wsdl/ws.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ws_1" destdir="${build.generated.dir}/jax-wsCache/ws_1" wsdl="${wsdl-ws_1}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/xml-resources/web-service-references/ws/wsdl/ws.wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${wsdl-ws_1}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/ws_1"/>
+    <target name="wsimport-client-ws" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ws"/>
+        <property name="wsdl-ws" location="xml-resources/web-service-references/ws/wsdl/ws.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ws" destdir="${build.generated.dir}/jax-wsCache/ws" wsdl="${wsdl-ws}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-ws}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ws"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/ws_1">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ws">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-ws_1" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/ws_1"/>
+    <target name="wsimport-client-clean-ws" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ws"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/br/gov/pr/maringa/isseteste/ws"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-ws_1"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-ws"/>
 </project>

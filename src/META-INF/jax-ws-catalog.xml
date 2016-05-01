@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/home/leandro/Downloads/ws.wsdl" uri="wsdl/ws.wsdl"/>
     <system systemId="file:/root/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl" uri="wsdl/ws.wsdl"/>
+    <system systemId="file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/xml-resources/web-service-references/ws/wsdl/ws.wsdl" uri="wsdl/ws.wsdl"/>
+    <system systemId="file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl" uri="wsdl/ws.wsdl"/>
 </catalog>

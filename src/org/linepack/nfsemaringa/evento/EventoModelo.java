@@ -94,7 +94,10 @@ public abstract class EventoModelo<T> {
         Method metodo = this.objetoModelo.getClass().getMethod(nomeMetodo, String.class);
         metodo.invoke(this.objetoModelo, xml);
         DAOModelo daoModelo = new DAOModelo();
-        daoModelo.update(this.objetoModelo);
+        String retorno = daoModelo.update(this.objetoModelo);
+        if (retorno != null){
+            System.out.println("Erro ao executar método: "+nomeMetodo);
+        }
     }
 
 }
