@@ -20,6 +20,7 @@ import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -38,23 +39,21 @@ import org.xml.sax.SAXException;
  *
  * @author root
  */
-public class Cancelar extends EventoModelo {
+public class Cancelar extends EventoModelo<Cancelamento> {
 
     public Cancelar(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        CancelamentoDAO cancelamentoDAO = new CancelamentoDAO();
-        for (Object cancelamento : cancelamentoDAO.getListByNamedQuery("cancelamentosPendentes")) {
-            this.tagID = "InfPedidoCancelamento";
+        this.tagID = "InfPedidoCancelamento";
+        List<Cancelamento> cancelamentos = new CancelamentoDAO().getListByNamedQuery("cancelamentosPendentes");
+        for (Cancelamento cancelamento : cancelamentos) {
             this.objetoModelo = cancelamento;
             super.run(conexao);
         }
     }
 
     @Override
-    public String formaXml() {
+    public String formaXml(Cancelamento cancelamento) {
         String xml = null;
         try {
-            Cancelamento cancelamento = (Cancelamento) this.objetoModelo;
-
             TcInfPedidoCancelamento tipc = new TcInfPedidoCancelamento();
             tipc.setCodigoCancelamento(new Integer(1).byteValue());
             tipc.setId(cancelamento.getId().toString());
@@ -93,11 +92,11 @@ public class Cancelar extends EventoModelo {
     public void retornaXml(String xmlRetorno) {
         try {
             CancelarNfseResposta resposta = (CancelarNfseResposta) UnmarshallerUtil.unmarshal(CancelarNfseResposta.class, xmlRetorno);
-            Cancelamento cancelamento = (Cancelamento) this.objetoModelo;
+            Cancelamento cancelamento = this.objetoModelo;
             cancelamento.setUsuarioAlteracao("CONECTOR");
             cancelamento.setDataAlteracao(new Date());
             if (resposta.getListaMensagemRetorno() != null) {
-                super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());                
+                super.setMensagemRetorno(resposta.getListaMensagemRetorno().getMensagemRetorno(), "Cancelamento", cancelamento.getId());
                 cancelamento.setIsProblematica(1);
             } else {
                 cancelamento.setIsCancelada(1);

@@ -5,13 +5,15 @@
  */
 package org.linepack.nfsemaringa.DAO;
 
+import org.linepack.nfsemaringa.model.Parametro;
+
 /**
  *
  * @author leandro
  */
-public class ParametrosDAO extends DAOModelo{
+public class ParametroDAO extends DAOModelo<Parametro>{
     
-    public ParametrosDAO(){
+    public ParametroDAO(){
         super();
     }
     

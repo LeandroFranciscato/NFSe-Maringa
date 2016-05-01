@@ -2,8 +2,8 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="ws">
-      <wsdl-url>file:/root/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl</wsdl-url>
+    <client name="ws_1">
+      <wsdl-url>file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/xml-resources/web-service-references/ws/wsdl/ws.wsdl</wsdl-url>
       <local-wsdl-file>ws.wsdl</local-wsdl-file>
       <package-name>br.gov.pr.maringa.isseteste.ws</package-name>
       <catalog-file>catalog.xml</catalog-file>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/root/NetBeansProjects/NFSe-Maringa/src/META-INF/wsdl/ws.wsdl</wsimport-option-value>
+          <wsimport-option-value>file:/C:/Users/Leandro/Documents/NetBeansProjects/NFSe-Maringa/xml-resources/web-service-references/ws/wsdl/ws.wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

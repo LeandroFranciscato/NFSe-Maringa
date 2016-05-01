@@ -6,12 +6,13 @@
 package org.linepack.nfsemaringa.DAO;
 
 import javax.persistence.Query;
+import org.linepack.nfsemaringa.model.Mensagem;
 
 /**
  *
  * @author root
  */
-public class MensagemDAO extends DAOModelo {
+public class MensagemDAO extends DAOModelo<Mensagem> {
 
     public MensagemDAO() {
         super();

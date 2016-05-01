@@ -5,11 +5,13 @@
  */
 package org.linepack.nfsemaringa.DAO;
 
+import org.linepack.nfsemaringa.model.Cancelamento;
+
 /**
  *
  * @author root
  */
-public class CancelamentoDAO extends DAOModelo{
+public class CancelamentoDAO extends DAOModelo<Cancelamento>{
 
     public CancelamentoDAO(){
         super();        

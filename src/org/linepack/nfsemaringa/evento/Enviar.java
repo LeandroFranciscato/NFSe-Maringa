@@ -24,7 +24,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CertificateException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
@@ -45,24 +47,25 @@ import org.xml.sax.SAXException;
  *
  * @author root
  */
-public class Enviar extends EventoModelo {
+public class Enviar extends EventoModelo<Envio> {
 
     public Enviar(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        EnvioDAO envioDAO = new EnvioDAO();
-        for (Object envio : envioDAO.getListByNamedQuery("enviosPendentes")) {
-            this.tagID = "InfDeclaracaoPrestacaoServico";
-            this.objetoModelo = envio;
+        this.tagID = "InfDeclaracaoPrestacaoServico";
+        List<Envio> envios = new ArrayList<>();
+        envios = new EnvioDAO().getListByNamedQuery("enviosPendentes");
+
+        for (Envio envio : envios) {
+            super.objetoModelo = envio;
             super.run(conexao);
         }
     }
 
     @Override
-    protected String formaXml() {
+    protected String formaXml(Envio envio) {
         String xml = null;
-        try {
-            Envio envio = (Envio) this.objetoModelo;
 
-            // RPS
+        try {
+            // RPS                                
             TcIdentificacaoRps identificacaoRps = new TcIdentificacaoRps();
             identificacaoRps.setNumero(BigInteger.valueOf(envio.getNumeroRps()));
             identificacaoRps.setSerie(envio.getSerieRps());
@@ -180,7 +183,6 @@ public class Enviar extends EventoModelo {
         } catch (DatatypeConfigurationException | JAXBException | IllegalArgumentException ex) {
             Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return xml;
     }
 
@@ -193,7 +195,7 @@ public class Enviar extends EventoModelo {
     protected void retornaXml(String xmlRetorno) {
         try {
             GerarNfseResposta resposta = (GerarNfseResposta) UnmarshallerUtil.unmarshal(GerarNfseResposta.class, xmlRetorno);
-            Envio envio = (Envio) this.objetoModelo;            
+            Envio envio = super.objetoModelo;
             envio.setUsuarioAlteracao("CONECTOR");
             envio.setDataAlteracao(new Date());
             if (resposta.getListaMensagemRetorno() != null) {
@@ -204,8 +206,11 @@ public class Enviar extends EventoModelo {
                 envio.setNumeroNfse(resposta.getListaNfse().getCompNfse().getNfse().getInfNfse().getNumero());
             }
             new EnvioDAO().update(envio);
+
         } catch (JAXBException | IllegalArgumentException ex) {
-            Logger.getLogger(Enviar.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Enviar.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

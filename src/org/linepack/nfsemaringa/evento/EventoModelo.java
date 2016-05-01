@@ -35,20 +35,19 @@ import org.xml.sax.SAXException;
  *
  * @author root
  */
-public abstract class EventoModelo {
+public abstract class EventoModelo<T> {
 
     protected String tagID;
     protected Boolean isSigned;
-    protected Object objetoModelo;
+    protected T objetoModelo;
 
     public EventoModelo() {
         this.tagID = "";
         this.isSigned = true;
-        this.objetoModelo = new Object();
     }
 
     protected void run(Conexao conexao) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException, NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        String xmlEnvio = this.formaXml();
+        String xmlEnvio = this.formaXml(this.objetoModelo);
         if (isSigned) {
             xmlEnvio = this.assinaXml(xmlEnvio, tagID, conexao.getNomeCertificadoJKS(), conexao.getSenhaCertificado());
         }
@@ -58,7 +57,7 @@ public abstract class EventoModelo {
         this.retornaXml(xmlRetorno);
     }
 
-    protected abstract String formaXml();
+    protected abstract String formaXml(T objetoModelo);
 
     protected String assinaXml(String xml, String tag, String keyStorePath, String password) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, KeyStoreException, IOException, CertificateException, UnrecoverableEntryException, ParserConfigurationException, SAXException, MarshalException, XMLSignatureException, TransformerException, JAXBException {
         return AssinadorXml.getXmlAssinado(xml, tag, keyStorePath, password);
@@ -67,13 +66,12 @@ public abstract class EventoModelo {
     protected NfseServicesPort getConnectionPort() {
         return new NfseServicesService().getNfseServicesPort();
     }
-    
+
     protected abstract String enviaXml(String xmlEnvio);
 
     protected abstract void retornaXml(String xmlRetorno);
 
     protected void setMensagemRetorno(List<TcMensagemRetorno> mensagens, String eventoGerador, Long idEventoGerador) {
-        
         new MensagemDAO().deleteMensagensAnteriores(eventoGerador, idEventoGerador);
         for (TcMensagemRetorno mensagemRetorno : mensagens) {
             Mensagem mensagemModel = new Mensagem();
@@ -82,13 +80,14 @@ public abstract class EventoModelo {
             mensagemModel.setDataInsercao(new Date());
             mensagemModel.setCodigo(mensagemRetorno.getCodigo());
             mensagemModel.setDescricao(mensagemRetorno.getMensagem());
-            mensagemModel.setAcao(mensagemRetorno.getCorrecao());            
+            mensagemModel.setAcao(mensagemRetorno.getCorrecao());
             new MensagemDAO().insert(mensagemModel);
         }
     }
 
     /**
      *
+     * @param xml
      * @param nomeMetodo must be setXmlEnvio or setXmlRetorno
      */
     protected void atualizaXmlOrigem(String xml, String nomeMetodo) throws NoSuchMethodException, SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
@@ -96,6 +95,6 @@ public abstract class EventoModelo {
         metodo.invoke(this.objetoModelo, xml);
         DAOModelo daoModelo = new DAOModelo();
         daoModelo.update(this.objetoModelo);
-    }        
+    }
 
 }

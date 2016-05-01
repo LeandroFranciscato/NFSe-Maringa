@@ -5,11 +5,13 @@
  */
 package org.linepack.nfsemaringa.DAO;
 
+import org.linepack.nfsemaringa.model.Envio;
+
 /**
  *
  * @author root
  */
-public class EnvioDAO extends DAOModelo {
+public class EnvioDAO extends DAOModelo<Envio> {
 
     public EnvioDAO() {
         super();

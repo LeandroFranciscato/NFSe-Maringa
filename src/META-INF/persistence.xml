@@ -5,7 +5,7 @@
     <class>org.linepack.nfsemaringa.model.Cancelamento</class>
     <class>org.linepack.nfsemaringa.model.Mensagem</class>
     <class>org.linepack.nfsemaringa.model.Envio</class>
-    <class>org.linepack.nfsemaringa.model.Parametros</class>
+    <class>org.linepack.nfsemaringa.model.Parametro</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/nfse"/>
       <property name="javax.persistence.jdbc.user" value="nfse"/>

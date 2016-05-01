@@ -7,7 +7,6 @@ package org.linepack.nfsemaringa.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import static javafx.scene.input.KeyCode.T;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.linepack.nfsemaringa.util.EntityManagerUtil;
@@ -16,44 +15,53 @@ import org.linepack.nfsemaringa.util.EntityManagerUtil;
  *
  * @author root
  */
-public class DAOModelo {
+public class DAOModelo<T> {
 
-    public EntityManager entityManager;
+    protected EntityManager entityManager;
+    private Class<T> classe;
 
     public DAOModelo() {
         this.entityManager = new EntityManagerUtil().getEntityManager();
     }
 
-    public void insert(Object object) {
+    public void insert(T object) {
         entityManager.persist(object);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
 
-    public void update(Object object) {
+    public void update(T object) {
         entityManager.merge(object);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
 
-    public Object getByID(String modelClassName, Integer id) {
+    public T getByID(String modelClassName, Integer id) {
         Query query = this.entityManager.createQuery(""
                 + "select a"
                 + "  from " + modelClassName + " a "
-                + " where a.id = " + id);
+                + " where a.id = " + id, classe);
         Object object = new Object();
         object = query.getSingleResult();
         this.entityManager.close();
-        return object;
-
+        return classe.cast(object);
     }
 
-    public List getListByNamedQuery(String namedQueryName) {
-        Query query = this.entityManager.createNamedQuery(namedQueryName);
+    public T getByNamedQuery(String namedQueryName) {
+        Query query = this.entityManager.createNamedQuery(namedQueryName, classe);
+        if (query.getFirstResult() == 0) {
+            return null;
+        }
+        Object object = new Object();
+        object = query.getSingleResult();
+        return classe.cast(object);
+    }
+
+    public <T> List<T> getListByNamedQuery(String namedQueryName) throws IllegalAccessException {
+        Query query = this.entityManager.createNamedQuery(namedQueryName, classe);
         List objectList = new ArrayList<>();
-        objectList = (List) query.getResultList();
+        objectList = query.getResultList();
         this.entityManager.close();
         return objectList;
-    }   
-
+    }
 }
